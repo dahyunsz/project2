@@ -654,4 +654,37 @@ body {
   #footnote .connect a.pinterest {
 	background-position: 0 -196px;
   }
+
   
+  /*--------------- pagging -------------------*/
+
+
+  .pagging{
+	background-color: #57614e;
+  }
+
+  .pagging{
+	background-position: -107px 0;
+	color: #fff;
+	display: inline-block;
+	font: 12px/28px Arial, Helvetica, sans-serif;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+	text-transform: uppercase;
+  }
+  .pagging:hover {
+	background-position: 0 0;
+	color: #fff;
+	background-color:#859477;
+	display: inline-block;
+	font: 12px/28px Arial, Helvetica, sans-serif;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+	text-transform: uppercase;
+  }
