@@ -1,11 +1,3 @@
-<?php
-	include "connect.php";
-	session_start();
-	// ตรวจสอบว่ามีชือใน session หรือไม่ หากไม่มีให้ไปหน้า login อัตโนมัติ
-	if (empty($_SESSION["username"]) ) {
-		header("location: login.php");
-	}
-?>
 <html>
 <head>
 	<title>Project - User-list</title>

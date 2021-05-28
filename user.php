@@ -1,13 +1,5 @@
 <?php
 	include "connect.php";
-	session_start();
-	// ตรวจสอบว่ามีชือใน session หรือไม่ หากไม่มีให้ไปหน้า login อัตโนมัติ
-	if (empty($_SESSION["username"]) ) {
-		header("location: login.php");
-	}
-?>
-<?php
-	include "connect.php";
     $stmt = $pdo->prepare("SELECT * FROM user where username=? and id=?");
 	$stmt->bindParam(1, $_GET["username"]);
 	$stmt->bindParam(2, $_GET["id"]);

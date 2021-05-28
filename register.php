@@ -1,11 +1,3 @@
-<?php
-	include "connect.php";
-	session_start();
-	// ตรวจสอบว่ามีชือใน session หรือไม่ หากไม่มีให้ไปหน้า login อัตโนมัติ
-	if (empty($_SESSION["username"]) ) {
-		header("location: login.php");
-	}
-?>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -74,7 +66,7 @@
 			</div>
 			<div class="main">
 				<h1>Resgister New User</h1>
-				<form action="insert-register.php" method="post" class="message">
+				<form action="insert-register.php" method="post" class="message" enctype="multipart/form-data">
 					<label>First Name</label>
 					<input type="text" name="firstname" required>
 					<label>Last Name</label>
@@ -96,6 +88,24 @@
 	<div id="footer">
 		<?php include 'component/footer.php';?>
 	</div>
+
+	<!-- <script>
+		document.querySelector("#user_picture").addEventListener("change", function(){
+
+			const reader = new FileReader();
+			reader.addEventListener("load",() => {
+				localStorage.setItem("recent-image",reader.result);
+			});
+			reader.readAsDataURL(this.files[0]);
+
+			document.addEventListener("DOMContentLoaded",() => {
+				const recentImageDataUrl = localStorage.getItem("recent-image");
+				if(recentImageDataUrl){
+					document.querySelector("#user_preview").setAttribute("src",recentImageDataUrl);
+				}
+			});
+		})
+	</script> -->
 </body>
 
 </html>

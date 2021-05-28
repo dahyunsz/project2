@@ -1,11 +1,3 @@
-<?php
-	include "connect.php";
-	session_start();
-	// ตรวจสอบว่ามีชือใน session หรือไม่ หากไม่มีให้ไปหน้า login อัตโนมัติ
-	if (empty($_SESSION["username"]) ) {
-		header("location: login.php");
-	}
-?>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -39,8 +31,8 @@
 				<div>
 					<h2>Detail</h2>
 					<p>
-						“example example example example example example example example example example example example
-						”<br> <span>- detail_of_door -</span>
+						<!-- example example example example example example example example example example example example<br>  -->
+						<span>- computer science door -</span>
 					</p>
 				</div>
 			</div>
@@ -111,30 +103,5 @@
 	<div id="footer">
 		<?php include 'component/footer.php';?>
 	</div>
-	
-	<script>
-		// function set_door(){
-		// 	var p = document.createElement("p");
-		// 	var newImg = document.createElement("img");
-		// 	newImg.setAttribute("src","door/jame_20-5-2021_20-12-00.jpg")
-		// 	newImg.setAttribute('width', 300);
-		// 	newImg.setAttribute('height', 300);
-		// 	var node1 = document.createTextNode("10/25/2020 at 20:12 pm ");
-		// 	var node2 = document.createElement("a");
-		// 	var text = document.createTextNode("login");
-		// 	node2.appendChild(text);
-		// 	node2.style.color = "red";
-		// 	var url = window.location.pathname;
-		// 	filename1 = url.match(/.*\/(.*)$/)[1]; // ชื่อไฟล์+นามสกุล home.html
-		// 	filename2 = filename1.split(/\./)[0]; // ชื่อไฟล์ไม่มีนามสกุล home
-		// 	p.appendChild(newImg);
-		// 	p.appendChild(node1);
-		// 	p.appendChild(node2);
-		// 	console.log(filename1)
-		// 	var get_log = document.getElementById("doorList")
-		// 	get_log.appendChild(p)
-		// }
-		// window.onload = set_door()
-	</script>
 </body>
 </html>

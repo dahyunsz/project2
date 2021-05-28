@@ -1,11 +1,3 @@
-<?php
-	include "connect.php";
-	session_start();
-	// ตรวจสอบว่ามีชือใน session หรือไม่ หากไม่มีให้ไปหน้า login อัตโนมัติ
-	if (empty($_SESSION["username"]) ) {
-		header("location: login.php");
-	}
-?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -30,14 +22,23 @@
 		<div class="clearfix">
         <?php
             include "connect.php";
-            $stmt = $pdo->prepare("INSERT INTO user VALUES ('',?, ?, ?, ?, ?, ?)");
+			$con = mysqli_connect('localhost','root','');
+			mysqli_select_db($con, 'project');
+            $stmt = $pdo->prepare("INSERT INTO user VALUES ('',?, ?, ?, ?, ?, '')");
             $stmt->bindParam(1, $_POST["username"]);
             $stmt->bindParam(2, $_POST["password"]);
             $stmt->bindParam(3, $_POST["firstname"]);
             $stmt->bindParam(4, $_POST["lastname"]);
             $stmt->bindParam(5, $_POST["email"]);
-            $stmt->bindParam(6, $_POST["user_picture"]);
+            //$stmt->bindParam(6, $_POST["user_picture"]);
             $stmt->execute();
+			if(isset($_POST['submit'])){
+				$result = mysqli_query($con, "SELECT MAX(id) FROM user");
+				$row = mysqli_fetch_array($result);
+				$user_filename = $row[0];
+				move_uploaded_file($_FILES['user_picture']['tmp_name'], "user/".$user_filename.".jpg");
+
+			}
             echo "<h1>" . $_POST["firstname"] . " " . $_POST["lastname"] . "</h1>";
         ?>
         <p> ลงทำเบียนสำเร็จแล้ว </p><br>
@@ -48,5 +49,10 @@
 	<div id="footer">
 		<?php include 'component/footer.php';?>
 	</div>
+	<script>
+		window.document.onload = function(){ 
+			console.log($_POST["user_picture"]); 
+		}
+	</script>
 </body>
 </html>
